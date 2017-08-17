@@ -1,7 +1,7 @@
 
 <#PSScriptInfo
 
-.VERSION 1.0
+.VERSION 1.0.1
 
 .GUID 236a52e8-3264-4593-af92-e6fba67b1753
 
@@ -62,6 +62,7 @@ New-FileLogger -Path $sLogFile -logLevel Info -LogManager $LM
 New-FileLogger -Path $sLogPath -logLevel Error -LogManager $LM
 New-ConsoleLogger -logLevel Info -LogManager $LM
 
+$Today = Get-Date
 
 $expireingUsers = Get-ADUser -Filter { AccountExpirationDate -lt $today } -Properties AccountExpirationDate |select-object Name, SamAccountName, AccountExpirationDate
 
